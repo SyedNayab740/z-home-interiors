@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { ImageAsset } from "@/types";
 import type { ImageProps } from "next/image";
@@ -27,8 +26,11 @@ export function ImageWrapper({
   sizes,
   ...props
 }: ImageWrapperProps) {
+  const wrapperClassName =
+    containerClassName ?? (fill ? "absolute inset-0" : undefined);
+
   return (
-    <div className={containerClassName}>
+    <div className={wrapperClassName}>
       <Image
         src={image.src}
         alt={image.alt}
